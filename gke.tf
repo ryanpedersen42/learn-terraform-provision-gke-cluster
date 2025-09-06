@@ -30,6 +30,7 @@ resource "google_container_cluster" "primary" {
 
 # Separately Managed Node Pool
 resource "google_container_node_pool" "primary_nodes" {
+  # Drata: Set [google_container_node_pool.management.auto_upgrade] to true to automatically update nodes in the cluster to the latest control plane version
   name       = "${google_container_cluster.primary.name}-node-pool"
   location   = var.region
   cluster    = google_container_cluster.primary.name
