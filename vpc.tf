@@ -19,6 +19,7 @@ resource "google_compute_network" "vpc" {
 
 # Subnet
 resource "google_compute_subnetwork" "subnet" {
+  # Drata: Configure [google_compute_subnetwork.log_config] to ensure that security-relevant events are logged to detect malicious activity
   name          = "${var.project_id}-subnet"
   region        = var.region
   network       = google_compute_network.vpc.name
